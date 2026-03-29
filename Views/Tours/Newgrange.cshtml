@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Newgrange";
+    Layout = "~/Views/Shared/_LayoutPageTours.cshtml";
+}
+
+<section class="tour-intro">
+    <div class="text-content">
+        <h1>NewgrangeTour</h1>
+        <h3>Unlock the Mysteries of Newgrange: Ireland's Ancient Tomb and World Heritage Site</h3>
+        <p>
+            Journey back in time to the heart of Ireland’s prehistoric past with a visit to Newgrange, a 5,000-year-old passage tomb that predates the Egyptian pyramids. This UNESCO World Heritage Site is one of Ireland's most significant archaeological treasures.
+            <br />
+            <br />
+            Your tour begins with a scenic drive through the rolling hills of County Meath, where you will marvel at the ancient landscape and learn about the rich history of the Boyne Valley.
+        </p>
+        <h3>Tour Highlights</h3>
+        <p>
+            Newgrange: Explore the ancient tomb of Newgrange, which was built during the Neolithic period. Learn about its architectural wonders and the mystery surrounding its alignment with the winter solstice, when the rising sun illuminates the inner chamber.
+            <br />
+            <br />
+            Knowth and Dowth: Visit the nearby tombs of Knowth and Dowth, which are part of the Brú na Bóinne complex. These prehistoric sites offer additional insights into the rituals and lives of the people who built them.
+            <br />
+            <br />
+            Boyne Valley: Discover the rich history of the Boyne Valley, home to numerous ancient monuments and historical sites. Learn about the area’s significance in Irish mythology and its strategic importance in Ireland’s history.
+        </p>
+    </div>
+    <div class="tour-text-video">
+        <iframe src="https://youtube.com/embed/bvSSvR-3C8Q"
+                title="Newgrange"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+    </div>
+</section>
+<section class="tour-content">
+    <div class="tour-details">
+        <img id="newgrange-img" src=@Url.Content("~/Content/Images/Newgrange_img1.jpg") alt="Newgrange" />
+        <div class="tour-details-text">
+            <h3>What's Included</h3>
+            <p>
+                Round-trip transportation from Dublin in a comfortable, air-conditioned coach.
+                <br />
+                Professional and knowledgeable local guide to provide insights and stories about the region.
+                <br />
+                Free time to explore Glendalough and other scenic stops.
+            </p>
+            <h3>Key Details</h3>
+            <p><strong> Departure Time: Daily at 9:30 AM</strong></p>
+            <p><strong>Meeting Point: Dublin City Center (specific location provided upon booking)</strong></p>
+            <p><strong>Duration: Approximately 8 hours</strong></p>
+            <p><strong>Price: €50 per person (includes transportation and guide services).</strong></p>
+            <h3>Additional Information</h3>
+            <p>
+                This tour is suitable for all ages and fitness levels. Don't forget to bring comfortable walking shoes, a rain jacket (just in case), and a camera to capture the stunning landscapes! Snacks and beverages are welcome, but we’ll also have a stop where you can grab lunch at a traditional Irish café or pub.
+            </p>
+            <button class="book-now" onclick="window.location.href='@Url.Action("Create", "Bookings")'">Book Now</button>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        const images = ['Newgrange_img1.jpg', 'Newgrange_img2.jpg'];
+        const newgrangeImg = document.getElementById('newgrange-img');
+        function changeImage() { const randomIndex = Math.floor(Math.random() * images.length); newgrangeImg.src = '@Url.Content("~/Content/images/")' + images[randomIndex]; }
+        setInterval(changeImage, 3000);
+    </script>
+}

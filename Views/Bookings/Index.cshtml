@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Travel_Agency_2nd_Semester_Project.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageBookNow.cshtml";
+}
+
+<table class="bookings-table">
+    <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Gender</th>
+        <th>Age Group</th>
+        <th>Tour</th>
+        <th>Participants</th>
+        <th>Date</th>
+        <th>Payment</th>
+        <th>Comments</th>
+        <th>Accepted Terms</th>
+        <th>Total Price</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender.GenderDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeGroup.AgeGroupDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tour.TourName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfParticipants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TourDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod.PaymentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TermsAccepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookingID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BookingID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookingID })
+            </td>
+        </tr>
+
+    }
+
+</table>
+@Html.ActionLink("Book a new tour here", "Create", null, new { @class = "btn btn-default" })

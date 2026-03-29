@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="@Url.Content("~/CSS/StyleTravelAgency.css")" />
+</head>
+<body>
+    <header>
+        <div class="logo">Braz's Tours</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="@Url.Action("HomePage", "HomePage")">Home</a></li>
+                <li><a href="@Url.Action("WicklowMountains", "Tours")">Wicklow Mountains</a></li>
+                <li><a href="@Url.Action("CliffsOfMoher", "Tours")">Cliffs of Moher</a></li>
+                <li><a href="@Url.Action("GiantsCauseway", "Tours")">Giant's Causeway</a></li>
+                <li><a href="@Url.Action("MalahideCastle", "Tours")">Malahide Castle</a></li>
+                <li><a href="@Url.Action("Newgrange", "Tours")">Newgrange</a></li>
+                <li><a href="@Url.Action("Gallery", "Gallery")">Gallery</a></li>
+                <li><a href="@Url.Action("Create", "Bookings")">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="book-now-main" id="book-now-main">
+
+        @RenderBody()
+
+    </main>
+    <footer>
+        <button class="contact-us" onclick="window.location.href = 'mailto:thiago_braz@ymail.com';">Contact Us</button>
+        <p>Our office is open Monday to Sunday, from 9:00 AM to 5:00 PM. For out-of-hours enquires, please call us on +353 83 888 8888</p>
+        <p>© 2024 Braz's Tours. All rights reserved.</p>
+        <p>Today's Date: <span id="current-date"></span></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="@Url.Content("~/JavaScript/BookNowPage.js")"></script>
+</body>
+</html>

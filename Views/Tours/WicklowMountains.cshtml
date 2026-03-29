@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Wicklow Mountains";
+    Layout = "~/Views/Shared/_LayoutPageTours.cshtml";
+}
+
+<section class="tour-intro">
+    <div class="text-content">
+        <h1>Wicklow Mountains Tour</h1>
+        <h3>Explore the Heart of Ireland's Ancient East with the Wicklow Mountains Tour</h3>
+        <p>
+            Discover the serene beauty of the Wicklow Mountains, fondly known as the "Garden of Ireland", This full-day guided adventure is perfect for nature lovers, history enthusiasts, and anyone looking to experience the breathtaking Irish countryside.
+            <br />
+            <br />
+            Your journey begins with a comfortable departure from Dublin, where you'll head south to the rolling hills and lush landscapes of County Wicklow. As we traverse the winding roads, you'll be captivated by the vibrant greenery, tranquil lakes, and majestic valleys that define this iconic region.
+        </p>
+        <h3>Tour Highlights</h3>
+        <p>
+            Glendalough Monastic Site: Step back in time as you explore this ancient monastic settlement, nestled between two stunning lakes. Learn about its rich history, admire the iconic round tower, and enjoy a peaceful walk amidst the ruins.
+            <br />
+            <br />
+            Sally Gap: Marvel at the dramatic scenery of Sally Gap, a picturesque mountain pass that offers panoramic views of the surrounding countryside. This area is a favorite filming location for movies and TV shows, including Braveheart and PS I Love You.
+            <br />
+            <br />
+            Powerscourt Gardens (Optional): If time permits, take a detour to visit the award-winning Powerscourt Gardens, featuring meticulously landscaped grounds, ornate fountains, and breathtaking terraces.
+        </p>
+    </div>
+    <div class="tour-text-video">
+        <iframe src="https://youtube.com/embed/Ikkx-9feB-s"
+                title="Wicklow Mountains Tour"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+    </div>
+</section>
+<section class="tour-content">
+    <div class="tour-details">
+        <img id="wicklow-img" src=@Url.Content("~/Content/Images/Wicklow_Mountains_img2.jpg") alt="Wicklow Mountains" />
+        <div class="tour-details-text">
+            <h3>What's Included</h3>
+            <p>
+                Round-trip transportation from Dublin in a comfortable, air-conditioned coach.
+                <br />
+                Professional and knowledgeable local guide to provide insights and stories about the region.
+                <br />
+                Free time to explore Glendalough and other scenic stops.
+            </p>
+            <h3>Key Details</h3>
+            <p><strong> Departure Time: Daily at 9:00 AM</strong></p>
+            <p><strong>Meeting Point: Dublin City Center (specific location provided upon booking)</strong></p>
+            <p><strong>Duration: Approximately 8 hours</strong></p>
+            <p><strong>Price: €60 per person (includes transportation and guide services).</strong></p>
+            <h3>Additional Information</h3>
+            <p>
+                This tour is suitable for all ages and fitness levels. Don't forget to bring comfortable walking shoes, a rain jacket (just in case), and a camera to capture the stunning landscapes! Snacks and beverages are welcome, but we’ll also have a stop where you can grab lunch at a traditional Irish café or pub.
+            </p>
+            <button class="book-now" onclick="window.location.href='@Url.Action("Create", "Bookings")'">Book Now</button>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+            const images = ['Wicklow_Mountains_img1.jpg', 'Wicklow_Mountains_img2.jpg'];
+            const wicklowImg = document.getElementById('wicklow-img');
+            function changeImage() { const randomIndex = Math.floor(Math.random() * images.length); wicklowImg.src = '@Url.Content("~/Content/images/")' + images[randomIndex]; }
+            setInterval(changeImage, 3000);
+    </script>
+}
+

@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="@Url.Content("~/CSS/StyleTravelAgency.css")" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="@Url.Content("~/JavaScript/HomePage.js")"></script>}
+    <title>Braz's Tours</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Braz's Tours</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="@Url.Action("HomePage", "HomePage")">Home</a></li>
+                <li><a href="@Url.Action("WicklowMountains", "Tours")">Wicklow Mountains</a></li>
+                <li><a href="@Url.Action("CliffsOfMoher", "Tours")">Cliffs of Moher</a></li>
+                <li><a href="@Url.Action("GiantsCauseway", "Tours")">Giant's Causeway</a></li>
+                <li><a href="@Url.Action("MalahideCastle", "Tours")">Malahide Castle</a></li>
+                <li><a href="@Url.Action("Newgrange", "Tours")">Newgrange</a></li>
+                <li><a href="@Url.Action("Gallery", "Gallery")">Gallery</a></li>
+                <li><a href="@Url.Action("Create", "Bookings")">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h1>Discover the Magic of Ireland with Braz's Tours</h1>
+            <p>
+                Welcome to Braz's Tours, a premium travel agency specialized in inbound tourism, founded in 2024 by Thiago Braz.
+                We offer exceptional guided tours across Ireland, providing our guests with a unique opportunity to explore the country's stunning landscapes, ancient landmarks and vibrant culture.
+                With expert guides, personalized itineraries and comfortable transportation, we ensure that every aspect of your journey is taken care of, allowing you to focus on enjoying your adventure.
+            </p>
+            <button class="book-now" onclick="window.location.href='@Url.Action("Create", "Bookings")'">Book Now</button>
+        </section>
+        <section class="intro-gallery">
+            <div class="intro-gallery-container">
+                <div class="intro-gallery-container-image">
+                    <h2>Explore the scenic beauty of Ireland's "Garden County"</h2>
+                    <img id="wicklow" src=@Url.Content("~/Content/Images/Wicklow_Mountains_img1.jpg") alt="Wicklow Mountains" />
+                </div>
+                <div class="intro-gallery-container-image">
+                    <h2>Stand on the edge of one of Ireland's most famous natural wonders</h2>
+                    <img id="cliffs" src=@Url.Content("~/Content/Images/Cliffs_of_Moher_img1.jpeg") alt="Cliffs of Moher" />
+                </div>
+                <div class="intro-gallery-container-image">
+                    <h2>Discover the unique geological formations of this UNESCO World Heritage site</h2>
+                    <img id="giants" src=@Url.Content("~/Content/Images/Giants_Causeway_img1.jpg") alt="Giant's Causeway" />
+                </div>
+                <div class="intro-gallery-container-image">
+                    <h2>Step into history at one of Ireland's most beautiful castles</h2>
+                    <img id="malahide" src=@Url.Content("~/Content/Images/Malahide_Castle_img1.jpg") alt="Malahide Castle" />
+                </div>
+                <div class="intro-gallery-container-image">
+                    <h2>Experience the mystery of the ancient Neolithic monument</h2>
+                    <img id="newgrange" src=@Url.Content("~/Content/Images/Newgrange_img1.jpg") alt="Newgrange" />
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <button class="contact-us" onclick="window.location.href = 'mailto:thiago_braz@ymail.com';">Contact Us</button>
+        <p>Our office is open Monday to Sunday, from 9:00 AM to 5:00 PM. For out-of-hours enquires, please call us on +353 83 888 8888</p>
+        <p>© 2024 Braz's Tours. All rights reserved.</p>
+        <p>Today's Date: <span id="current-date"></span></p>
+    </footer>
+</body>
+</html>

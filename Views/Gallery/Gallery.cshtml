@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="@Url.Content("~/CSS/StyleTravelAgency.css")" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Gallery</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Braz's Tours</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="@Url.Action("HomePage", "HomePage")">Home</a></li>
+                <li><a href="@Url.Action("WicklowMountains", "Tours")">Wicklow Mountains</a></li>
+                <li><a href="@Url.Action("CliffsOfMoher", "Tours")">Cliffs of Moher</a></li>
+                <li><a href="@Url.Action("GiantsCauseway", "Tours")">Giant's Causeway</a></li>
+                <li><a href="@Url.Action("MalahideCastle", "Tours")">Malahide Castle</a></li>
+                <li><a href="@Url.Action("Newgrange", "Tours")">Newgrange</a></li>
+                <li><a href="@Url.Action("Gallery", "Gallery")">Gallery</a></li>
+                <li><a href="@Url.Action("Create", "Bookings")">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="gallery-full">
+            <div class="intro">
+                <h1>Explore our unforgettable moments</h1>
+            </div>
+            <section>
+                <h2>Wicklow Mountains</h2>
+                <div class="gallery-container">
+                    <img src="@Url.Content("~/Content/images/Wicklow_Gallery_1.jpg")" alt="Wicklow Mountains" />
+                    <img src="@Url.Content("~/Content/images/Wicklow_Gallery_2.jpg")" alt="Wicklow Mountains" />
+                    <img src="@Url.Content("~/Content/images/Wicklow_Gallery_3.jpg")" alt="Wicklow Mountains" />
+                    <img src="@Url.Content("~/Content/images/Wicklow_Gallery_4.jpg")" alt="Wicklow Mountains" />
+                    <img src="@Url.Content("~/Content/images/Wicklow_Gallery_5.jpg")" alt="Wicklow Mountains" />
+                </div>
+            </section>
+            <section>
+                <h2>Cliffs of Moher</h2>
+                <div class="gallery-container">
+                    <img src="@Url.Content("~/Content/images/Cliffs_Gallery_2.jpg")" alt="Cliffs of Moher" />
+                    <img src="@Url.Content("~/Content/images/Cliffs_Gallery_4.jpg")" alt="Cliffs of Moher" />
+                    <img src="@Url.Content("~/Content/images/Cliffs_Gallery_5.jpg")" alt="Cliffs of Moher" />
+                    <img src="@Url.Content("~/Content/images/Cliffs_Gallery_1.jpg")" alt="Cliffs of Moher" />
+                    <img src="@Url.Content("~/Content/images/Cliffs_Gallery_3.jpg")" alt="Cliffs of Moher" />
+                </div>
+            </section>
+            <section>
+                <h2>Giant's Causeway</h2>
+                <div class="gallery-container">
+                    <img src="@Url.Content("~/Content/images/Giants_Gallery_2.jpg")" alt="Giant's Causeway" />
+                    <img src="@Url.Content("~/Content/images/Giants_Gallery_1.jpg")" alt="Giant's Causeway" />
+                    <img src="@Url.Content("~/Content/images/Giants_Gallery_5.jpg")" alt="Giant's Causeway" />
+                    <img src="@Url.Content("~/Content/images/Giants_Gallery_3.jpg")" alt="Giant's Causeway" />
+                    <img src="@Url.Content("~/Content/images/Giants_Gallery_4.jpg")" alt="Giant's Causeway" />
+                </div>
+            </section>
+            <section>
+                <h2>Malahide Castle</h2>
+                <div class="gallery-container">
+                    <img src="@Url.Content("~/Content/images/Gallery_Malahide_1.jpg")" alt="Malahide Castle" />
+                    <img src="@Url.Content("~/Content/images/Gallery_Malahide_3.jpg")" alt="Malahide Castle" />
+                    <img src="@Url.Content("~/Content/images/Gallery_Malahide_5.jpg")" alt="Malahide Castle" />
+                    <img src="@Url.Content("~/Content/images/Gallery_Malahide_2.jpg")" alt="Malahide Castle" />
+                    <img src="@Url.Content("~/Content/images/Gallery_Malahide_4.jpg")" alt="Malahide Castle" />
+                </div>
+            </section>
+            <section>
+                <h2>Newgrange</h2>
+                <div class="gallery-container">
+                    <img src="@Url.Content("~/Content/images/Newgrange_Gallery_1.jpg")" alt="Newgrange" />
+                    <img src="@Url.Content("~/Content/images/Newgrange_Gallery_5.jpg")" alt="Newgrange" />
+                    <img src="@Url.Content("~/Content/images/Newgrange_Gallery_2.jpg")" alt="Newgrange" />
+                    <img src="@Url.Content("~/Content/images/Newgrange_Gallery_4.jpg")" alt="Newgrange" />
+                    <img src="@Url.Content("~/Content/images/Newgrange_Gallery_3.jpg")" alt="Newgrange" />
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <button class="contact-us" onclick="window.location.href = 'mailto:thiago_braz@ymail.com';">Contact Us</button>
+        <p>Our office is open Monday to Sunday, from 9:00 AM to 5:00 PM. For out-of-hours enquires, please call us on +353 83 888 8888</p>
+        <p>© 2024 Braz's Tours. All rights reserved.</p>
+        <p>Today's Date: <span id="current-date"></span></p>
+    </footer>
+    <script>
+        const currentDateElement = document.getElementById('current-date');
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('en-IE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        currentDateElement.textContent = formattedDate;
+    </script>
+</body>
+</html>

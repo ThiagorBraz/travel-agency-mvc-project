@@ -1,0 +1,76 @@
+﻿@model Travel_Agency_2nd_Semester_Project.Models.Booking
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageBookNow.cshtml";
+}
+
+<div class="form-horizontal">
+    <h1><strong>Booking Details</strong></h1>
+    <hr />
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Full Name</label>
+        <div>@Html.DisplayFor(model => model.FullName)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Email</label>
+        <div>@Html.DisplayFor(model => model.Email)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Phone Number</label>
+        <div>@Html.DisplayFor(model => model.PhoneNumber)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Gender</label>
+        <div>@Html.DisplayFor(model => model.Gender.GenderDescription)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Age Group</label>
+        <div>@Html.DisplayFor(model => model.AgeGroup.AgeGroupDescription)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Tour</label>
+        <div>@Html.DisplayFor(model => model.Tour.TourName)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Participants</label>
+        <div>@Html.DisplayFor(model => model.NumberOfParticipants)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Tour Date</label>
+        <div>@Html.DisplayFor(model => model.TourDate)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Payment</label>
+        <div>@Html.DisplayFor(model => model.PaymentMethod.PaymentDescription)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Comments</label>
+        <div>@Html.DisplayFor(model => model.SpecialComments)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Accepted Terms</label>
+        <div>@Html.DisplayFor(model => model.TermsAccepted)</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Total Price</label>
+        <div>@Html.DisplayFor(model => model.TotalPrice)</div>
+    </div>
+    <div class="form-group">
+        <label>Check out an important tip for your tour!</label>
+        <div>@ViewBag.InfoFromApi;</div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">See below the weather forecast</label>
+        <div>@ViewBag.InfoFromApi2</div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a href="@Url.Action("Edit", new { id = Model.BookingID })" class="btn btn-default">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-default">Back to List</a>
+        </div>
+    </div>
+</div>

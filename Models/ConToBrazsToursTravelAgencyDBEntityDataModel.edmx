@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BrazsToursTravelAgencyDBEntDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AgeGroup">
+          <Key>
+            <PropertyRef Name="AgeGroupID" />
+          </Key>
+          <Property Name="AgeGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgeGroupDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="GenderID" Type="int" Nullable="false" />
+          <Property Name="AgeGroupID" Type="int" Nullable="false" />
+          <Property Name="TourID" Type="int" Nullable="false" />
+          <Property Name="NumberOfParticipants" Type="int" Nullable="false" />
+          <Property Name="TourDate" Type="date" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+          <Property Name="SpecialComments" Type="nvarchar" MaxLength="1000" />
+          <Property Name="TermsAccepted" Type="bit" Nullable="false" />
+          <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenderDescription" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="PaymentMethodID" />
+          </Key>
+          <Property Name="PaymentMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="TourID" />
+          </Key>
+          <Property Name="TourID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TourDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="TourPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Booking__AgeGrou__412EB0B6">
+          <End Role="AgeGroup" Type="Self.AgeGroup" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeGroup">
+              <PropertyRef Name="AgeGroupID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="AgeGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__GenderI__403A8C7D">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__Payment__4316F928">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__TourID__4222D4EF">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="TourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BrazsToursTravelAgencyDBEntDataModelStoreContainer">
+          <EntitySet Name="AgeGroup" EntityType="Self.AgeGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tour" EntityType="Self.Tour" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Booking__AgeGrou__412EB0B6" Association="Self.FK__Booking__AgeGrou__412EB0B6">
+            <End Role="AgeGroup" EntitySet="AgeGroup" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__GenderI__403A8C7D" Association="Self.FK__Booking__GenderI__403A8C7D">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__Payment__4316F928" Association="Self.FK__Booking__Payment__4316F928">
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__TourID__4222D4EF" Association="Self.FK__Booking__TourID__4222D4EF">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BrazsToursTravelAgencyDBEntDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AgeGroup">
+          <Key>
+            <PropertyRef Name="AgeGroupID" />
+          </Key>
+          <Property Name="AgeGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgeGroupDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__AgeGrou__412EB0B6" FromRole="AgeGroup" ToRole="Booking" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenderID" Type="Int32" Nullable="false" />
+          <Property Name="AgeGroupID" Type="Int32" Nullable="false" />
+          <Property Name="TourID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfParticipants" Type="Int32" Nullable="false" />
+          <Property Name="TourDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+          <Property Name="SpecialComments" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="TermsAccepted" Type="Boolean" Nullable="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="AgeGroup" Relationship="Self.FK__Booking__AgeGrou__412EB0B6" FromRole="Booking" ToRole="AgeGroup" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__Booking__GenderI__403A8C7D" FromRole="Booking" ToRole="Gender" />
+          <NavigationProperty Name="PaymentMethod" Relationship="Self.FK__Booking__Payment__4316F928" FromRole="Booking" ToRole="PaymentMethod" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Booking__TourID__4222D4EF" FromRole="Booking" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenderDescription" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__GenderI__403A8C7D" FromRole="Gender" ToRole="Booking" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="PaymentMethodID" />
+          </Key>
+          <Property Name="PaymentMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__Payment__4316F928" FromRole="PaymentMethod" ToRole="Booking" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="TourID" />
+          </Key>
+          <Property Name="TourID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TourDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TourPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__TourID__4222D4EF" FromRole="Tour" ToRole="Booking" />
+        </EntityType>
+        <Association Name="FK__Booking__AgeGrou__412EB0B6">
+          <End Role="AgeGroup" Type="Self.AgeGroup" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeGroup">
+              <PropertyRef Name="AgeGroupID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="AgeGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__GenderI__403A8C7D">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__Payment__4316F928">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__TourID__4222D4EF">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="TourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BrazsToursTravelAgencyDBEntitiesConString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AgeGroups" EntityType="Self.AgeGroup" />
+          <EntitySet Name="Bookings" EntityType="Self.Booking" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethod" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tours" EntityType="Self.Tour" />
+          <AssociationSet Name="FK__Booking__AgeGrou__412EB0B6" Association="Self.FK__Booking__AgeGrou__412EB0B6">
+            <End Role="AgeGroup" EntitySet="AgeGroups" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__GenderI__403A8C7D" Association="Self.FK__Booking__GenderI__403A8C7D">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__Payment__4316F928" Association="Self.FK__Booking__Payment__4316F928">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__TourID__4222D4EF" Association="Self.FK__Booking__TourID__4222D4EF">
+            <End Role="Tour" EntitySet="Tours" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BrazsToursTravelAgencyDBEntDataModelStoreContainer" CdmEntityContainer="BrazsToursTravelAgencyDBEntitiesConString">
+          <EntitySetMapping Name="AgeGroups">
+            <EntityTypeMapping TypeName="BrazsToursTravelAgencyDBEntDataModel.AgeGroup">
+              <MappingFragment StoreEntitySet="AgeGroup">
+                <ScalarProperty Name="AgeGroupID" ColumnName="AgeGroupID" />
+                <ScalarProperty Name="AgeGroupDescription" ColumnName="AgeGroupDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="BrazsToursTravelAgencyDBEntDataModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="AgeGroupID" ColumnName="AgeGroupID" />
+                <ScalarProperty Name="TourID" ColumnName="TourID" />
+                <ScalarProperty Name="NumberOfParticipants" ColumnName="NumberOfParticipants" />
+                <ScalarProperty Name="TourDate" ColumnName="TourDate" />
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="SpecialComments" ColumnName="SpecialComments" />
+                <ScalarProperty Name="TermsAccepted" ColumnName="TermsAccepted" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="BrazsToursTravelAgencyDBEntDataModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethods">
+            <EntityTypeMapping TypeName="BrazsToursTravelAgencyDBEntDataModel.PaymentMethod">
+              <MappingFragment StoreEntitySet="PaymentMethod">
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PaymentDescription" ColumnName="PaymentDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BrazsToursTravelAgencyDBEntDataModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours">
+            <EntityTypeMapping TypeName="BrazsToursTravelAgencyDBEntDataModel.Tour">
+              <MappingFragment StoreEntitySet="Tour">
+                <ScalarProperty Name="TourID" ColumnName="TourID" />
+                <ScalarProperty Name="TourName" ColumnName="TourName" />
+                <ScalarProperty Name="TourDescription" ColumnName="TourDescription" />
+                <ScalarProperty Name="TourPrice" ColumnName="TourPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

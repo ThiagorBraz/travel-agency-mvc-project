@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Cliffs of Moher";
+    Layout = "~/Views/Shared/_LayoutPageTours.cshtml";
+}
+
+<section class="tour-intro">
+    <div class="text-content">
+        <h1>Cliffs of Moher Tour</h1>
+        <h3>Experience the Majestic Cliffs of Moher on a Stunning Coastal Adventure</h3>
+        <p>
+            Stand on the edge of Ireland’s most famous cliffs and witness one of the most awe-inspiring views in the world. The Cliffs of Moher Tour offers a breathtaking experience as you take in the sweeping vistas of the Atlantic Ocean, soaring seabirds, and the rugged coastline of the Wild Atlantic Way.
+            <br />
+            <br />
+            Your day begins with a scenic drive from Dublin, heading west through the charming Irish countryside. Along the way, you’ll be immersed in the natural beauty that defines this unforgettable region.
+        </p>
+        <h3>Tour Highlights</h3>
+        <p>
+            Cliffs of Moher: Marvel at the towering cliffs that rise to over 700 feet above the Atlantic Ocean. Enjoy panoramic views from the viewing platforms and learn about the rich geological history of this iconic landmark.
+            <br />
+            <br />
+            Burren National Park: Explore the unique landscape of the Burren, a vast limestone plateau home to rare flora and fauna. This UNESCO Global Geopark is known for its otherworldly terrain and is a must-see for nature enthusiasts.
+            <br />
+            <br />
+            Doolin Village: Stop at the charming village of Doolin, renowned for its traditional Irish music and picturesque atmosphere. Take a break and enjoy a delicious meal or a pint in one of the local pubs.
+        </p>
+    </div>
+    <div class="tour-text-video">
+        <iframe src="https://youtube.com/embed/gOTnDkl5fFw"
+                title="Cliffs of Moher Tour"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+    </div>
+</section>
+<section class="tour-content">
+    <div class="tour-details">
+        <img id="cliffs-img" src=@Url.Content("~/Content/Images/Cliffs_of_Moher_img1.jpeg") alt="Cliffs of Moher" />
+        <div class="tour-details-text">
+            <h3>What's Included</h3>
+            <p>
+                Round-trip transportation from Dublin in a comfortable, air-conditioned coach.
+                <br />
+                Professional and knowledgeable local guide to provide insights and stories about the region.
+                <br />
+                Free time to explore Doolin Village and other scenic stops.
+            </p>
+            <h3>Key Details</h3>
+            <p><strong> Departure Time: Daily at 10:00 AM</strong></p>
+            <p><strong>Meeting Point: Dublin City Center (specific location provided upon booking)</strong></p>
+            <p><strong>Duration: Approximately 11 hours</strong></p>
+            <p><strong>Price: €70 per person (includes transportation and guide services).</strong></p>
+            <h3>Additional Information</h3>
+            <p>
+                This tour is suitable for all ages and fitness levels. Don't forget to bring comfortable walking shoes, a rain jacket (just in case), and a camera to capture the stunning landscapes! Snacks and beverages are welcome, but we’ll also have a stop where you can grab lunch at a traditional Irish café or pub.
+            </p>
+            <button class="book-now" onclick="window.location.href='@Url.Action("Create", "Bookings")'">Book Now</button>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        const images = ['Cliffs_of_Moher_img1.jpeg', 'Cliffs_of_Moher_img2.jpeg'];
+        const cliffsImg = document.getElementById('cliffs-img');
+        function changeImage() { const randomIndex = Math.floor(Math.random() * images.length); cliffsImg.src = '@Url.Content("~/Content/images/")' + images[randomIndex]; }
+        setInterval(changeImage, 3000);
+    </script>
+}

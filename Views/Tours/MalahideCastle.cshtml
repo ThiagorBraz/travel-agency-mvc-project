@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Malahide Castle";
+    Layout = "~/Views/Shared/_LayoutPageTours.cshtml";
+}
+
+<section class="tour-intro">
+    <div class="text-content">
+        <h1>Malahide Castle Tour</h1>
+        <h3>Step into History at Malahide Castle and its Beautiful Gardens</h3>
+        <p>
+            Immerse yourself in the rich history and beauty of Malahide Castle, one of Ireland's most historic landmarks. This 12th-century castle offers a fascinating glimpse into the lives of the Talbot family, who lived here for over 800 years.
+            <br />
+            <br />
+            Your visit begins with a scenic drive from Dublin, taking you through lush parks and tranquil landscapes to this magnificent estate. Explore the castle’s opulent rooms, learn about its colorful history, and enjoy the stunning surroundings.
+        </p>
+        <h3>Tour Highlights</h3>
+        <p>
+            Malahide Castle: Discover the stunning interiors of the castle, including the grand ballroom, drawing rooms, and the family chapel. Hear tales of intrigue, romance, and historical events that shaped this remarkable site.
+            <br />
+            <br />
+            Gardens and Grounds: Wander through 250 acres of beautiful parkland, formal gardens, and wooded trails. The extensive grounds are home to a variety of plant species, making it a peaceful retreat for nature lovers.
+            <br />
+            <br />
+            Talbot Botanic Gardens: Explore the Talbot Botanic Gardens, one of Ireland’s oldest botanical gardens. The gardens feature a diverse range of plants and are a perfect place to relax and enjoy the serenity of the estate.
+        </p>
+    </div>
+    <div class="tour-text-video">
+        <iframe src="https://youtube.com/embed/-lTZaQEisx0"
+                title="Malahide Castle"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+    </div>
+</section>
+<section class="tour-content">
+    <div class="tour-details">
+        <img id="malahide-img" src=@Url.Content("~/Content/Images/Malahide_Castle_img1.jpg") alt="Malahide Castle" />
+        <div class="tour-details-text">
+            <h3>What's Included</h3>
+            <p>
+                Round-trip transportation from Dublin in a comfortable, air-conditioned coach.
+                <br />
+                Professional and knowledgeable local guide to provide insights and stories about the region.
+                <br />
+                Free time to explore Glendalough and other scenic stops.
+            </p>
+            <h3>Key Details</h3>
+            <p><strong> Departure Time: Daily at 1:00 PM</strong></p>
+            <p><strong>Meeting Point: Dublin City Center (specific location provided upon booking)</strong></p>
+            <p><strong>Duration: Approximately 4 hours</strong></p>
+            <p><strong>Price: €40 per person (includes transportation and guide services).</strong></p>
+            <h3>Additional Information</h3>
+            <p>
+                This tour is suitable for all ages and fitness levels. Don't forget to bring comfortable walking shoes, a rain jacket (just in case), and a camera to capture the stunning landscapes! Snacks and beverages are welcome, but we’ll also have a stop where you can grab lunch at a traditional Irish café or pub.
+            </p>
+            <button class="book-now" onclick="window.location.href='@Url.Action("Create", "Bookings")'">Book Now</button>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        const images = ['Malahide_Castle_img1.jpg', 'Malahide_Castle_img2.jpg'];
+        const malahideImg = document.getElementById('malahide-img');
+        function changeImage() { const randomIndex = Math.floor(Math.random() * images.length); malahideImg.src = '@Url.Content("~/Content/images/")' + images[randomIndex]; }
+        setInterval(changeImage, 3000);
+    </script>
+}

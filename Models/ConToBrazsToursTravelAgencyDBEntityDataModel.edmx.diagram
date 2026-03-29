@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="990439160ca646159844d74f72c16066" Name="Diagram1">
+        <EntityTypeShape EntityType="BrazsToursTravelAgencyDBEntDataModel.AgeGroup" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrazsToursTravelAgencyDBEntDataModel.Booking" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrazsToursTravelAgencyDBEntDataModel.Gender" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrazsToursTravelAgencyDBEntDataModel.PaymentMethod" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrazsToursTravelAgencyDBEntDataModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrazsToursTravelAgencyDBEntDataModel.Tour" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <AssociationConnector Association="BrazsToursTravelAgencyDBEntDataModel.FK__Booking__AgeGrou__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="BrazsToursTravelAgencyDBEntDataModel.FK__Booking__GenderI__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="BrazsToursTravelAgencyDBEntDataModel.FK__Booking__Payment__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="BrazsToursTravelAgencyDBEntDataModel.FK__Booking__TourID__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
