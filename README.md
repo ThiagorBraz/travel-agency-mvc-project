@@ -1,2 +1,54 @@
-# travel-agency-mvc-project
-Travel Agency web application built with ASP.NET, MVC 5, Entity framework and SQL Server - ATU Sligo Web Design Module
+# Braz's Tours – Travel Agency Web Application
+
+A full-stack travel agency web application developed as a 2nd Semester 
+project for the Web Design module at Atlantic Technological University 
+(ATU), Sligo, Ireland.
+
+## About the Project
+
+Braz's Tours is a fictional Irish travel agency website that allows 
+users to browse tour packages across Ireland and submit booking 
+requests. The application was built using the ASP.NET MVC architecture 
+with a SQL Server database connected via Entity Framework.
+
+## Features
+
+- Home page with agency overview
+- 5 individual tour pages:
+  - Cliffs of Moher
+  - Giants Causeway
+  - Malahide Castle
+  - Newgrange
+  - Wicklow Mountains
+- Photo gallery page
+- Booking form (Create, Edit, Delete and View bookings)
+- Contact via email button in footer across all pages
+- Custom error pages (400 and 404)
+
+## Technologies Used
+
+- C# / ASP.NET MVC 5
+- Entity Framework 6
+- SQL Server Express
+- HTML / CSS / JavaScript
+- Razor Views (.cshtml)
+- .NET Framework 4.7.2
+
+## Project Structure
+
+- Controllers/ — BookingsController, ToursController, 
+  GalleryController, HomePageController, ErrorController
+- Views/ — Razor templates for each page and shared layouts
+- Models/ — Entity Framework data models
+- CSS/ and JavaScript/ — Front-end assets
+
+## Academic Context
+
+Developed at Atlantic Technological University (ATU), Sligo — 
+BSc (Hons) Computer Science, 2nd Semester, Web Design Module.
+
+## Note
+
+This project requires a local SQL Server Express instance to run. 
+Connection string and database configuration are defined in 
+Web.config.
