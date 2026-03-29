@@ -14,7 +14,7 @@ with a SQL Server database connected via Entity Framework.
 ## Features
 
 - Home page with agency overview
-- 5 individual tour pages:
+- 5 individual tour pages with embedded YouTube videos:
   - Cliffs of Moher
   - Giants Causeway
   - Malahide Castle
@@ -37,17 +37,24 @@ with a SQL Server database connected via Entity Framework.
 ## Project Structure
 
 - Controllers/ — BookingsController, ToursController, 
-  GalleryController, HomePageController, ErrorController
+  GalleryController, HomePageController and ErrorController
 - Views/ — Razor templates for each page and shared layouts
 - Models/ — Entity Framework data models
 - CSS/ and JavaScript/ — Front-end assets
+- App_Start/ — Route and filter configurations
+
+## Note on Images
+
+The Content/ folder containing the project images has not been 
+included in this repository for privacy reasons. The application 
+structure, logic and all source code are fully available above.
 
 ## Academic Context
 
 Developed at Atlantic Technological University (ATU), Sligo — 
 BSc (Hons) Computer Science, 2nd Semester, Web Design Module.
 
-## Note
+## Database Setup
 
 This project requires a local SQL Server Express instance to run. 
 Connection string and database configuration are defined in 
