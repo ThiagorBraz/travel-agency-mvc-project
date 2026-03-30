@@ -63,4 +63,4 @@ structure, logic and all source code are fully available above.
 ## Academic Context
 
 Developed at Atlantic Technological University (ATU), Sligo — 
-BSc (Hons) Computer Science, 2nd Semester, Web Design Module.
+Higher Diploma in Computer Science, 2nd Semester, Web Design Module.
