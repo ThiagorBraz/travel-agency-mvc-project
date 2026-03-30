@@ -43,6 +43,17 @@ with a SQL Server database connected via Entity Framework.
 - CSS/ and JavaScript/ — Front-end assets
 - App_Start/ — Route and filter configurations
 
+## Database
+
+The file `T-SQL_BrazsToursTravelAgencyDB.sql` contains the full 
+database schema and data for this project, including tables for 
+Bookings, AgeGroup, Gender and PaymentMethod.
+
+To restore the database:
+1. Open SQL Server Management Studio (SSMS)
+2. Run the script `T-SQL_BrazsToursTravelAgencyDB.sql`
+3. Update the connection string in Web.config if needed
+
 ## Note on Images
 
 The Content/ folder containing the project images has not been 
@@ -53,9 +64,3 @@ structure, logic and all source code are fully available above.
 
 Developed at Atlantic Technological University (ATU), Sligo — 
 BSc (Hons) Computer Science, 2nd Semester, Web Design Module.
-
-## Database Setup
-
-This project requires a local SQL Server Express instance to run. 
-Connection string and database configuration are defined in 
-Web.config.
